@@ -8,7 +8,7 @@ import 'package:http/http.dart' as http;
 
 class GoogleMapsService {
   static const String googleApiKey = 'AIzaSyBWRCvfFaZH_SOsaxyS5dtS--zsl9aMDLU';
-  static const String _placesApiUrl = 'https://maps.googleapis.com/maps/api/place/autocomplete/json';
+  static const String _placesApiUrl = 'https://maps.pushogleapis.com/maps/api/place/autocomplete/json';
 
   // Get current location and address (reuse from HomeScreen logic)
   static Future<Map<String, dynamic>> getCurrentLocationWithAddress() async {
@@ -59,7 +59,7 @@ class GoogleMapsService {
 
   // Get LatLng from place ID (for selected suggestion)
   static Future<LatLng> getLatLngFromPlaceId(String placeId) async {
-    final url = Uri.parse('https://maps.googleapis.com/maps/api/place/details/json?place_id=$placeId&fields=geometry&key=${googleApiKey}');
+    final url = Uri.parse('https://maps.pushogleapis.com/maps/api/place/details/json?place_id=$placeId&fields=geometry&key=${googleApiKey}');
     final response = await http.get(url);
 
     if (response.statusCode == 200) {

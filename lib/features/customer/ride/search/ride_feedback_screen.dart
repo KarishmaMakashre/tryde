@@ -35,7 +35,7 @@ class _RideFeedbackScreenState extends State<RideFeedbackScreen> {
         automaticallyImplyLeading: false,
         actions: [
           TextButton(
-            onPressed: () => context.go('/home'),
+            onPressed: () => context.push('/home'),
             child: const Text("Skip", style: TextStyle(color: Colors.grey)),
           ),
         ],
@@ -114,7 +114,7 @@ class _RideFeedbackScreenState extends State<RideFeedbackScreen> {
                 ),
                 onPressed: () {
                   debugPrint("Rating: $_rating, Feedback: ${_feedbackController.text}, Quick: $_selectedFeedbacks");
-                  context.go('/home');
+                  context.push('/home');
                 },
                 child: const Text("Submit Feedback", style: TextStyle(fontSize: 18, color: Colors.white)),
               ),

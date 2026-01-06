@@ -948,6 +948,7 @@ class _PorterNewOrderScreenState extends State<PorterNewOrderScreen> {
     return Scaffold(
       backgroundColor: AppColors.white,
       appBar: AppBar(
+        automaticallyImplyLeading:true,
         backgroundColor: AppColors.white,
         elevation: 0,
         title: const Text(
@@ -1088,27 +1089,27 @@ class _PorterNewOrderScreenState extends State<PorterNewOrderScreen> {
             ),
             const SizedBox(height: 16),
             // Pickup Date & Time Field (Always shown)
-            TextField(
-              controller: _dateTimeController,
-              readOnly: true,
-              onTap: _selectDateTime,
-              decoration: InputDecoration(
-                hintText: "Pickup Date & Time",
-                prefixIcon: const Icon(Icons.calendar_today),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: borderColor),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  borderSide: const BorderSide(color: AppColors.porterPrimary, width: 2),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: borderColor),
-                ),
-              ),
-            ),
+            // TextField(
+            //   controller: _dateTimeController,
+            //   readOnly: true,
+            //   onTap: _selectDateTime,
+            //   decoration: InputDecoration(
+            //     hintText: "Pickup Date & Time",
+            //     prefixIcon: const Icon(Icons.calendar_today),
+            //     border: OutlineInputBorder(
+            //       borderRadius: BorderRadius.circular(12),
+            //       borderSide: BorderSide(color: borderColor),
+            //     ),
+            //     focusedBorder: OutlineInputBorder(
+            //       borderRadius: BorderRadius.circular(12),
+            //       borderSide: const BorderSide(color: AppColors.porterPrimary, width: 2),
+            //     ),
+            //     enabledBorder: OutlineInputBorder(
+            //       borderRadius: BorderRadius.circular(12),
+            //       borderSide: BorderSide(color: borderColor),
+            //     ),
+            //   ),
+            // ),
             const SizedBox(height: 16),
             Container(
               padding: const EdgeInsets.all(12),

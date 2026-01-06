@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:tryde/core/constants/color_constants.dart';
 
+import 'available_vehicles_screen.dart';
+
 class PorterSubmitOrderScreen extends StatelessWidget {
   const PorterSubmitOrderScreen({super.key});
 
@@ -114,7 +116,7 @@ class PorterSubmitOrderScreen extends StatelessWidget {
                       const Spacer(),
                       ElevatedButton(
                         onPressed: () {
-                          // Final submit logic
+                          Navigator.push(context, MaterialPageRoute(builder: (_)=>AvailableVehiclesScreen()));
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.porterPrimary,

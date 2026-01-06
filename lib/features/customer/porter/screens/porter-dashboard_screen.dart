@@ -18,22 +18,27 @@ class _PorterDashboardScreenState extends State<PorterDashboardScreen> {
   @override
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
+    final size = MediaQuery.of(context).size;
+
+    final double paddingH = size.width * 0.04;
+    final double iconSize = size.width * 0.07;
+    final double titleSize = size.width * 0.045;
+    final double subtitleSize = size.width * 0.035;
 
     return Scaffold(
       backgroundColor: AppColors.white,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: EdgeInsets.symmetric(horizontal: paddingH),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 20),
+                SizedBox(height: size.height * 0.02),
 
-                // Pick up from location card (Fixed layout to match screenshot)
+                /// Pickup Card
                 Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.all(16),
+                  padding: EdgeInsets.all(size.width * 0.04),
                   decoration: BoxDecoration(
                     color: AppColors.white,
                     borderRadius: BorderRadius.circular(20),
@@ -47,9 +52,9 @@ class _PorterDashboardScreenState extends State<PorterDashboardScreen> {
                       Icon(
                         Icons.location_on,
                         color: AppColors.porterPrimary,
-                        size: 28,
+                        size: iconSize,
                       ),
-                      const SizedBox(width: 12),
+                      SizedBox(width: size.width * 0.03),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,20 +62,19 @@ class _PorterDashboardScreenState extends State<PorterDashboardScreen> {
                             Text(
                               "Pick up from",
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: titleSize,
                                 fontWeight: FontWeight.bold,
-                                color: AppColors.textPrimary,
                               ),
                             ),
-                            const SizedBox(height: 4),
+                            SizedBox(height: size.height * 0.005),
                             Text(
                               _currentAddress,
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: AppColors.textLight,
-                              ),
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontSize: subtitleSize,
+                                color: AppColors.textLight,
+                              ),
                             ),
                           ],
                         ),
@@ -79,23 +83,23 @@ class _PorterDashboardScreenState extends State<PorterDashboardScreen> {
                   ),
                 ),
 
-                const SizedBox(height: 20),
+                SizedBox(height: size.height * 0.03),
 
-                // Vehicle selection (with images/icons as per screenshot)
+                /// Vehicle Options
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    vehicleOption(Icons.local_shipping, "Truck"),
-                    vehicleOption(Icons.two_wheeler, "Bike"),
-                    vehicleOption(Icons.directions_car, "Car"),
+                    vehicleOption(Icons.local_shipping, "Truck", size),
+                    vehicleOption(Icons.two_wheeler, "Bike", size),
+                    vehicleOption(Icons.directions_car, "Car", size),
                   ],
                 ),
 
-                const SizedBox(height: 30),
+                SizedBox(height: size.height * 0.04),
 
-                // Porter Rewards
+                /// Rewards
                 Container(
-                  padding: const EdgeInsets.all(20),
+                  padding: EdgeInsets.all(size.width * 0.05),
                   decoration: BoxDecoration(
                     color: AppColors.porterPrimary,
                     borderRadius: BorderRadius.circular(16),
@@ -105,25 +109,25 @@ class _PorterDashboardScreenState extends State<PorterDashboardScreen> {
                       Icon(
                         Icons.monetization_on,
                         color: Colors.yellow,
-                        size: 40,
+                        size: iconSize,
                       ),
-                      const SizedBox(width: 16),
+                      SizedBox(width: size.width * 0.04),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             "Explore Porter Rewards",
                             style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
+                              fontSize: titleSize,
                               fontWeight: FontWeight.bold,
+                              color: Colors.white,
                             ),
                           ),
                           Text(
                             "Earn 2 coins for every ₹100 spent",
                             style: TextStyle(
+                              fontSize: subtitleSize,
                               color: Colors.white70,
-                              fontSize: 14,
                             ),
                           ),
                         ],
@@ -132,44 +136,49 @@ class _PorterDashboardScreenState extends State<PorterDashboardScreen> {
                   ),
                 ),
 
-                const SizedBox(height: 30),
+                SizedBox(height: size.height * 0.04),
 
-                // Announcements
+                /// Announcements
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       "Announcements",
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: titleSize,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.textPrimary,
                       ),
                     ),
                     TextButton(
                       onPressed: () {},
                       child: Text(
                         "View all",
-                        style: TextStyle(color: AppColors.porterPrimary),
+                        style: TextStyle(
+                          fontSize: subtitleSize,
+                          color: AppColors.porterPrimary,
+                        ),
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 10),
+
+                SizedBox(height: size.height * 0.015),
+
                 Container(
-                  padding: const EdgeInsets.all(16),
+                  padding: EdgeInsets.all(size.width * 0.04),
                   decoration: BoxDecoration(
                     color: AppColors.grey100,
                     borderRadius: BorderRadius.circular(12),
                   ),
+
                   child: Row(
                     children: [
                       Icon(
                         Icons.campaign,
                         color: AppColors.porterPrimary,
-                        size: 40,
+                        size: size.width * 0.1, // responsive icon
                       ),
-                      const SizedBox(width: 16),
+                      SizedBox(width: size.width * 0.04),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -178,10 +187,10 @@ class _PorterDashboardScreenState extends State<PorterDashboardScreen> {
                               "Introducing Porter Enterprise",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 15,
+                                fontSize: size.width * 0.038, // responsive text
                               ),
                             ),
-                            const SizedBox(height: 4),
+                            SizedBox(height: size.height * 0.005),
                             // Add more details if needed
                           ],
                         ),
@@ -190,16 +199,20 @@ class _PorterDashboardScreenState extends State<PorterDashboardScreen> {
                         onPressed: () {},
                         child: Text(
                           "View all",
-                          style: TextStyle(color: AppColors.porterPrimary),
+                          style: TextStyle(
+                            color: AppColors.porterPrimary,
+                            fontSize:
+                                size.width * 0.034, // responsive button text
+                          ),
                         ),
                       ),
                     ],
                   ),
                 ),
 
-                const SizedBox(height: 30),
+                SizedBox(height: size.height * 0.04),
 
-                // Orders Tabs
+                /// Orders
                 DefaultTabController(
                   length: 3,
                   child: Column(
@@ -208,52 +221,51 @@ class _PorterDashboardScreenState extends State<PorterDashboardScreen> {
                       Text(
                         "Orders",
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: titleSize,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.textPrimary,
                         ),
                       ),
-                      const SizedBox(height: 10),
+                      SizedBox(height: size.height * 0.015),
                       TabBar(
                         labelColor: AppColors.porterPrimary,
                         unselectedLabelColor: AppColors.textLight,
                         indicatorColor: AppColors.porterPrimary,
+                        labelStyle: TextStyle(fontSize: subtitleSize),
                         tabs: const [
                           Tab(text: "Active"),
                           Tab(text: "Complete"),
                           Tab(text: "Inbox"),
                         ],
                       ),
-                      const SizedBox(height: 16),
                       SizedBox(
-                        height: 350, // Increased a bit for better spacing
+                        height: size.height * 0.42,
                         child: TabBarView(
                           children: [
-                            // Active Tab Content
                             ListView(
-                              physics: NeverScrollableScrollPhysics(),
-                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
                               children: [
                                 orderOptionCard(
+                                  size: size,
                                   title: "Deliver Now",
                                   subtitle:
                                       "We will assign a nearby 2-Wheeler to pick up and deliver as soon as possible",
                                   icon: Icons.access_time_filled,
                                   color: AppColors.porterPrimaryLight,
                                 ),
-                                const SizedBox(height: 16),
+                                SizedBox(height: size.height * 0.02),
                                 orderOptionCard(
+                                  size: size,
                                   title: "By End of the day",
                                   subtitle:
-                                      "Place your order by 4 PM and get it picked up to 6 PM and delivered by 9 PM. Rides combine orders into routes, and you save 40%",
+                                      "Place your order by 4 PM and get it picked up to 6 PM and delivered by 9 PM. Save 40%",
                                   icon: Icons.calendar_today,
                                   color: AppColors.porterPrimaryLight,
                                   badge: "Save 40%",
                                 ),
                               ],
                             ),
-                            Center(child: Text("No completed orders")),
-                            Center(child: Text("No inbox items")),
+                            const Center(child: Text("No completed orders")),
+                            const Center(child: Text("No inbox items")),
                           ],
                         ),
                       ),
@@ -261,41 +273,43 @@ class _PorterDashboardScreenState extends State<PorterDashboardScreen> {
                   ),
                 ),
 
-                const SizedBox(height: 100), // Extra space for bottom
+                SizedBox(height: size.height * 0.1),
               ],
             ),
           ),
         ),
       ),
-
-      // Removed Bottom Navigation Bar completely as per request
     );
   }
 
-  Widget vehicleOption(IconData icon, String label) {
-    // Lowercase route ke liye (truck, bike, car)
-    final String routeVehicle = label.toLowerCase();
+  Widget vehicleOption(IconData icon, String label, Size size) {
+    final routeVehicle = label.toLowerCase();
 
     return GestureDetector(
       onTap: () {
-        context.go('${AppConstants.routePorterSearch}/$routeVehicle');
-        // Ya phir push use kar sakte ho agar back stack chahiye
-        // context.push('/porter-new-order/$routeVehicle');
+        context.push('${AppConstants.routePorterSearch}/$routeVehicle');
       },
       child: Column(
         children: [
           Container(
-            padding: const EdgeInsets.all(20),
+            padding: EdgeInsets.all(size.width * 0.045),
             decoration: BoxDecoration(
               color: AppColors.porterPrimary.withOpacity(0.1),
               shape: BoxShape.circle,
             ),
-            child: Icon(icon, size: 40, color: AppColors.porterPrimary),
+            child: Icon(
+              icon,
+              size: size.width * 0.08,
+              color: AppColors.porterPrimary,
+            ),
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: size.height * 0.01),
           Text(
             label,
-            style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
+            style: TextStyle(
+              fontSize: size.width * 0.035,
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ],
       ),
@@ -303,6 +317,7 @@ class _PorterDashboardScreenState extends State<PorterDashboardScreen> {
   }
 
   Widget orderOptionCard({
+    required Size size,
     required String title,
     required String subtitle,
     required IconData icon,
@@ -310,51 +325,53 @@ class _PorterDashboardScreenState extends State<PorterDashboardScreen> {
     String? badge,
   }) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.all(size.width * 0.04),
       decoration: BoxDecoration(
         color: color.withOpacity(0.1),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(icon, size: 50, color: color),
-          const SizedBox(width: 16),
+          Icon(icon, size: size.width * 0.1, color: color),
+          SizedBox(width: size.width * 0.04),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 if (badge != null)
                   Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 6,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: size.width * 0.03,
+                      vertical: size.height * 0.006,
                     ),
-                    margin: const EdgeInsets.only(bottom: 8),
+                    margin: EdgeInsets.only(bottom: size.height * 0.01),
                     decoration: BoxDecoration(
                       color: Colors.green,
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(
                       badge,
-                      style: const TextStyle(
+                      style: TextStyle(
+                        fontSize: size.width * 0.03,
                         color: Colors.white,
-                        fontSize: 12,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
                 Text(
                   title,
-                  style: const TextStyle(
+                  style: TextStyle(
+                    fontSize: size.width * 0.04,
                     fontWeight: FontWeight.bold,
-                    fontSize: 16,
                   ),
                 ),
-                const SizedBox(height: 8),
+                SizedBox(height: size.height * 0.01),
                 Text(
                   subtitle,
-                  style: TextStyle(color: AppColors.textLight, fontSize: 13),
+                  style: TextStyle(
+                    fontSize: size.width * 0.033,
+                    color: AppColors.textLight,
+                  ),
                 ),
               ],
             ),

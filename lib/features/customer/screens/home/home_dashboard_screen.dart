@@ -231,21 +231,21 @@ class _HomeDashboardState extends State<HomeDashboard> {
         "title": "Cab / Auto Ride",
         "subtitle": "15 nearby",
         "color": AppColors.primary,
-        "onTap": () => context.go('/ride'), // Or switch tab logic
+        "onTap": () => context.push('/ride'), // Or switch tab logic
       },
       {
         "icon": Icons.shopping_bag,
         "title": "Porter Logistics",
         "subtitle": "8 available",
         "color": AppColors.primary,
-        "onTap": () => context.go('/porter'),
+        "onTap": () => context.push('/porter'),
       },
       {
         "icon": Icons.restaurant,
         "title": "Food Services",
         "subtitle": "Order now",
         "color": AppColors.primary,
-        "onTap": () => context.go('/food'),
+        "onTap": () => context.push('/food'),
       },
       {
         "icon": Icons.local_hospital,
@@ -339,7 +339,7 @@ class _HomeDashboardState extends State<HomeDashboard> {
         "title": "Rentals",
         "subtitle": "Hourly rides",
         "color": AppColors.primary,
-        "onTap": () => context.go('/ride'),
+        "onTap": () => context.push('/ride'),
       },
       {
         "icon": Icons.person,
@@ -362,14 +362,14 @@ class _HomeDashboardState extends State<HomeDashboard> {
         "title": "Reserve",
         "subtitle": "Schedule rides",
         "color": AppColors.primary,
-        "onTap": () => context.go('/ride'),
+        "onTap": () => context.push('/ride'),
       },
       {
         "icon": Icons.local_shipping,
         "title": "Courier",
         "subtitle": "Quick delivery",
         "color": AppColors.primary,
-        "onTap": () => context.go('/porter'),
+        "onTap": () => context.push('/porter'),
       },
       {
         "icon": Icons.child_care,

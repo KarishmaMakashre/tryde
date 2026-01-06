@@ -35,7 +35,7 @@
 
 // class _RideSearchResultScreenState extends State<RideSearchResultScreen>
 //     with SingleTickerProviderStateMixin {
-//   gmaps.GoogleMapController? _mapController;
+//   gmaps.pushogleMapController? _mapController;
 //   Set<gmaps.Marker> _markers = {};
 //   Set<gmaps.Polyline> _polylines = {};
 //   bool _isSearching = true;
@@ -186,7 +186,7 @@
 //       body: Stack(
 //         children: [
 //           Positioned.fill(
-//             child: gmaps.GoogleMap(
+//             child: gmaps.pushogleMap(
 //               initialCameraPosition: gmaps.CameraPosition(target: widget.currentLatLng, zoom: 15),
 //               onMapCreated: (controller) {
 //                 _mapController = controller;

@@ -33,7 +33,7 @@
 
 // class _TrackRideScreenState extends State<TrackRideScreen>
 //     with SingleTickerProviderStateMixin {
-//   gmaps.GoogleMapController? _mapController;
+//   gmaps.pushogleMapController? _mapController;
 //   Set<gmaps.Marker> _markers = {};        // <-- YEH THA DECLARED
 //   Set<gmaps.Polyline> _polylines = {};
 //   Timer? _locationTimer;
@@ -195,7 +195,7 @@
 //     return Scaffold(
 //       body: Stack(
 //         children: [
-//           gmaps.GoogleMap(
+//           gmaps.pushogleMap(
 //             initialCameraPosition: gmaps.CameraPosition(target: widget.pickupLatLng, zoom: 15),
 //             onMapCreated: (controller) => _mapController = controller,
 //             markers: _markers,        // <-- Ab sahi variable use ho raha hai
@@ -328,7 +328,7 @@
 //                           actions: [
 //                             TextButton(onPressed: () => Navigator.pop(context), child: const Text("No")),
 //                             TextButton(
-//                               onPressed: () => context.go('/home'),
+//                               onPressed: () => context.push('/home'),
 //                               child: const Text("Yes, Cancel", style: TextStyle(color: Colors.red)),
 //                             ),
 //                           ],
@@ -874,7 +874,7 @@ class _TrackRideScreenState extends State<TrackRideScreen>
                           actions: [
                             TextButton(onPressed: () => Navigator.pop(context), child: const Text("No")),
                             TextButton(
-                              onPressed: () => context.go('/home'),
+                              onPressed: () => context.push('/home'),
                               child: const Text("Yes, Cancel", style: TextStyle(color: Colors.red)),
                             ),
                           ],

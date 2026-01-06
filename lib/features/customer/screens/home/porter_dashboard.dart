@@ -113,7 +113,7 @@
 //   Widget _vehicleOption(BuildContext context, IconData icon, String label, String routeParam) {
 //     return GestureDetector(
 //       onTap: () {
-//         context.go('${AppConstants.routePorterSearch}/$routeParam');
+//         context('${AppConstants.routePorterSearch}/$routeParam');
 //       },
 //       child: Column(
 //         children: [
@@ -541,7 +541,7 @@ class PorterDashboard extends StatelessWidget {
   //   final theme = Theme.of(context);
   //   return GestureDetector(
   //     onTap: () {
-  //       context.go('${AppConstants.routePorterSearch}/$routeParam');
+  //       context.push('${AppConstants.routePorterSearch}/$routeParam');
   //     },
   //     child: Column(
   //       children: [
@@ -594,7 +594,7 @@ class PorterDashboard extends StatelessWidget {
   final theme = Theme.of(context);
   return GestureDetector(
     onTap: () {
-      context.go('${AppConstants.routePorterSearch}/$routeParam');
+      context.push('${AppConstants.routePorterSearch}/$routeParam');
     },
     child: Column(
       children: [

@@ -148,6 +148,7 @@ class AppColors {
   // Background Colors
   // ---------------------------
   static const Color background = Color(0xFFF8F9FA);
+  static const Color bgGrey = Color(0xFFF8F9FA);
   static const Color backgroundDark = Color(0xFF121212);
   // ---------------------------
   // Special Colors
@@ -162,4 +163,6 @@ class AppColors {
   static const Color transparent = Colors.transparent;
   static const Color black54 = Colors.black54;
   static const Color white70 = Colors.white70;
+
+
 }

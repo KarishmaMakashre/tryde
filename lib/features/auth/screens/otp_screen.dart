@@ -306,7 +306,7 @@ class _OtpScreenState extends State<OtpScreen> with TickerProviderStateMixin {
     setState(() => _otpError = Validators.validateOtp(otpString));
     if (_otpError == null) {
       // success — navigate to home
-      context.go(AppConstants.routeHome);
+      context.push(AppConstants.routeHome);
     }
   }
 
